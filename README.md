@@ -25,9 +25,5 @@ If you want to continue training the model, add `--train_from (model path)/model
 !perl tools/multi-bleu.perl data/tgt-test.txt < data/pred.txt
 ```
 
-## License / 라이센스
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/PurpleBooth/LICENSE.md) file for details / 이 프로젝트는 MIT 라이센스로 라이센스가 부여되어 있습니다. 자세한 내용은 LICENSE.md 파일을 참고하세요
-
 ## Reference
 https://github.com/OpenNMT/OpenNMT-py
