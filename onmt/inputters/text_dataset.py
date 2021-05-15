@@ -108,10 +108,10 @@ def _feature_tokenize(
     # tokens = mecab.morphs(string)
     
     # use sentencepiece
-    # if base == "src":
-    #     tokens=Korean_tokenizer_src(string)
-    # else:
-    #     tokens=Korean_tokenizer_tgt(string)
+    if base == "src":
+        tokens=Korean_tokenizer_src(string)
+    else:
+        tokens=Korean_tokenizer_tgt(string)
         
     # use BPE
     # if base == "src":
@@ -121,7 +121,7 @@ def _feature_tokenize(
     
 
     # use original tokenizer
-    tokens = string.split(feat_delim)
+    #tokens = string.split(feat_delim)
     
     #print("tokens: ",tokens)
     if truncate is not None:
