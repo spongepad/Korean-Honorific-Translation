@@ -2,15 +2,27 @@
 
 ## Getting Started / 어떻게 시작하나요?
 
+### Step 1. Preprocess the data
+```
+!python preprocess.py
+```
+The source text file(`src`) and target text file(`tgt`)
 
-### Prerequisites / 선행 조건
+### Step 2. Train the model
+```
+!python train.py
+```
+If you want to continue training the model, add `--train_from (model path)/model.pt` later.
 
+### Step 3. Translate
+```
+!python translate.py -model data/model/model.pt -src data/src-test.txt -tgt data/tgt-test.txt -replace_unk -verbose -gpu 0
+```
 
-### Installing / 설치
-
-
-## Running the tests / 테스트의 실행
-
+### Step 4. Scoring the model
+```
+!perl tools/multi-bleu.perl data/tgt-test.txt < data/pred.txt
+```
 
 ## License / 라이센스
 
