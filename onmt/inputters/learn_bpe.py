@@ -192,7 +192,7 @@ def del_post_pos(sentence, m, delete_tag):
     return result  # 온전한 문장을 반환
 
 
-def main(infile, outfile, base, num_symbols=32000, min_frequency=2, verbose=False, is_dict=False):
+def main(infile, outfile, base, num_symbols=32000, _mecab=False, min_frequency=2, verbose=False, is_dict=False):
     """Learn num_symbols BPE operations from vocabulary, and write to outfile.
     """
     
@@ -207,10 +207,12 @@ def main(infile, outfile, base, num_symbols=32000, min_frequency=2, verbose=Fals
         
     with open(f"data/kor_{base}.txt", "w", encoding='utf-8') as f:
         for row in infile:
-            # mecab추가
-            # f.write(del_post_pos(row, m, delete_tag))
-            # 기본
-            f.write(row)
+            if _mecab:
+                # mecab추가
+                f.write(del_post_pos(row, m, delete_tag))
+            else:
+                # 기본
+                f.write(row)
             f.write('\n')
         f.close()
         

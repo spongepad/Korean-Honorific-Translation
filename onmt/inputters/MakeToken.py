@@ -2,7 +2,7 @@ import sentencepiece as spm
 import MeCab
 import pandas as pd
 
-def korean_token_src(datatxt):
+def korean_token_src(datatxt, _mecab=False):
     m = MeCab.Tagger()
     delete_tag = ['BOS/EOS', 'JKS', 'JKC', 'JKG', 'JKO', 'JKB', 'JKV', 'JKQ', 'JX', 'JC']
 
@@ -39,10 +39,12 @@ def korean_token_src(datatxt):
 
     with open("data/kor_src.txt", "w", encoding='utf-8') as f:
         for row in data:
-            # delete tag
-            #f.write(del_post_pos(row))
-            # only sentencepicec
-            f.write(row)
+            if _mecab:
+                # delete tag
+                f.write(del_post_pos(row))
+            else:
+                # only sentencepicec
+                f.write(row)
             f.write('\n')
 
     spm.SentencePieceTrainer.Train(
@@ -52,7 +54,7 @@ def korean_token_src(datatxt):
         --hard_vocab_limit=false'
     )
         
-def korean_token_tgt(datatxt):
+def korean_token_tgt(datatxt, _mecab=False):
     m = MeCab.Tagger()
     delete_tag = ['BOS/EOS', 'JKS', 'JKC', 'JKG', 'JKO', 'JKB', 'JKV', 'JKQ', 'JX', 'JC']
 
@@ -89,10 +91,12 @@ def korean_token_tgt(datatxt):
 
     with open("data/kor_tgt.txt", "w", encoding='utf-8') as f:
         for row in data:
-            # delete tag
-            #f.write(del_post_pos(row))
-            # only sentencepicec
-            f.write(row)
+            if _mecab:
+                # delete tag
+                f.write(del_post_pos(row))
+            else:
+                # only sentencepicec
+                f.write(row)
             f.write('\n')
 
     spm.SentencePieceTrainer.Train(

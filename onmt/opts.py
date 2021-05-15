@@ -250,6 +250,9 @@ def preprocess_opts(parser):
     group.add('--valid_align', '-valid_align', default=None,
               help="Path(s) to the validation src-tgt alignment")
 
+     group.add('--mecab', '-mecab', action="store_true",
+              help="using Mecab tokenizer")
+
     group.add('--src_dir', '-src_dir', default="",
               help='Source directory for image or audio files')
 
