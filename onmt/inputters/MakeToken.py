@@ -7,11 +7,11 @@ def korean_token_src(datatxt):
     delete_tag = ['BOS/EOS', 'JKS', 'JKC', 'JKG', 'JKO', 'JKB', 'JKV', 'JKQ', 'JX', 'JC']
 
     def del_post_pos(sentence):
-        tokens = sentence.split()  # 원본 문장 띄어쓰기로 분리
+        tokens = sentence.split()
 
         dict_list = []
 
-        for token in tokens:  # 띄어쓰기로 분리된 각 토큰 {'단어':'형태소 태그'} 와 같이 딕셔너리 생성
+        for token in tokens:
             m.parse('')
             node = m.parseToNode(token)
             word_list = []
@@ -25,23 +25,23 @@ def korean_token_src(datatxt):
 
             dict_list.append(dict(zip(word_list, morph_list)))
 
-        for dic in dict_list:  # delete_tag에 해당하는 단어 쌍 지우기 (조사에 해당하는 단어 지우기)
+        for dic in dict_list:
             for key in list(dic.keys()):
                 if dic[key] in delete_tag:
                     del dic[key]
 
-        combine_word = [''.join(list(dic.keys())) for dic in dict_list]  # 형태소로 분리된 각 단어 합치기
-        result = ' '.join(combine_word)  # 띄어쓰기로 분리된 각 토큰 합치기
+        combine_word = [''.join(list(dic.keys())) for dic in dict_list]
+        result = ' '.join(combine_word)
 
-        return result  # 온전한 문장을 반환
+        return result
 
     data = open(datatxt,'r', encoding='utf-8')
 
     with open("data/kor_src.txt", "w", encoding='utf-8') as f:
         for row in data:
-            # mecab 적용
+            # delete tag
             #f.write(del_post_pos(row))
-            # 기본
+            # only sentencepicec
             f.write(row)
             f.write('\n')
 
@@ -57,11 +57,11 @@ def korean_token_tgt(datatxt):
     delete_tag = ['BOS/EOS', 'JKS', 'JKC', 'JKG', 'JKO', 'JKB', 'JKV', 'JKQ', 'JX', 'JC']
 
     def del_post_pos(sentence):
-        tokens = sentence.split()  # 원본 문장 띄어쓰기로 분리
+        tokens = sentence.split()
 
         dict_list = []
 
-        for token in tokens:  # 띄어쓰기로 분리된 각 토큰 {'단어':'형태소 태그'} 와 같이 딕셔너리 생성
+        for token in tokens:
             m.parse('')
             node = m.parseToNode(token)
             word_list = []
@@ -75,23 +75,23 @@ def korean_token_tgt(datatxt):
 
             dict_list.append(dict(zip(word_list, morph_list)))
 
-        for dic in dict_list:  # delete_tag에 해당하는 단어 쌍 지우기 (조사에 해당하는 단어 지우기)
+        for dic in dict_list:
             for key in list(dic.keys()):
                 if dic[key] in delete_tag:
                     del dic[key]
 
-        combine_word = [''.join(list(dic.keys())) for dic in dict_list]  # 형태소로 분리된 각 단어 합치기
-        result = ' '.join(combine_word)  # 띄어쓰기로 분리된 각 토큰 합치기
+        combine_word = [''.join(list(dic.keys())) for dic in dict_list]
+        result = ' '.join(combine_word)
 
-        return result  # 온전한 문장을 반환
+        return result
 
     data = open(datatxt,'r', encoding='utf-8')
 
     with open("data/kor_tgt.txt", "w", encoding='utf-8') as f:
         for row in data:
-            # mecab 적용
+            # delete tag
             #f.write(del_post_pos(row))
-            # 기본
+            # only sentencepicec
             f.write(row)
             f.write('\n')
 

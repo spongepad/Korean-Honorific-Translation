@@ -322,16 +322,14 @@ def _get_parser():
 def main():
     parser = _get_parser()
     opt = parser.parse_args()
-    print("한글 토큰화 시작")
+    print("source 토큰화")
     #preprocess 처음 실행할 때 실행하기, 그 이외에는 주석
     #korean_token_src(opt.train_src[0])
     #bpe(opt.train_src[0], "data/src.code", "src")
-    print("한글 토큰화 완료")
-    print("한글 토큰화 시작")
+    print("target 토큰화")
     #preprocess 처음 실행할 때 실행하기, 그 이외에는 주석
     # korean_token_tgt(opt.train_tgt[0])
     #bpe(opt.train_tgt[0], "data/tgt.code", "tgt")
-    print("한글 토큰화 완료")
     preprocess(opt)
 
 
