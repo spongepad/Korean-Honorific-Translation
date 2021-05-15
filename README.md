@@ -6,7 +6,7 @@
 ```
 !python preprocess.py
 ```
-The source text file(`src`) and target text file(`tgt`)
+The source text file(`src`) and target text file(`tgt`)/n
 default tokenize : `Mecab`+`SentencePiece`.
 
 ### Step 2. Train the model
