@@ -22,7 +22,8 @@ If you want to continue training the model, add `--train_from (model path)/model
 
 ### Step 4. Postprocess
 ```
-!python ./onmt/tools/spacing.py -i ./data/pred.txt -o ./data/pred_sp.txt```
+!python ./onmt/tools/spacing.py -i ./data/pred.txt -o ./data/pred_sp.txt
+```
 
 ### Step 5. Scoring the model
 ```
