@@ -20,7 +20,11 @@ If you want to continue training the model, add `--train_from (model path)/model
 !python translate.py -model data/model/model.pt -src data/src-test.txt -tgt data/tgt-test.txt -replace_unk -verbose -gpu 0
 ```
 
-### Step 4. Scoring the model
+### Step 4. Postprocess
+```
+!python ./onmt/tools/spacing.py -i ./data/pred.txt -o ./data/pred_sp.txt```
+
+### Step 5. Scoring the model
 ```
 !perl tools/multi-bleu.perl data/tgt-test.txt < data/pred.txt
 ```
