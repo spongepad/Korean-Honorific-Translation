@@ -1,6 +1,6 @@
 # Korean Honorific Neural Machine Translation
 
-## Getting Started / 어떻게 시작하나요?
+## Getting Started
 
 ### Step 1. Preprocess the data
 ```
