@@ -3,14 +3,14 @@ The repo is a model that converts Korean into polite sentences.(using OpenNMT Tr
 
 ## Getting Started
 
-### Step 1. Preprocess the data
+### Step 1. Preprocess
 ```
 !python preprocess.py
 ```
 The source text file(`src`) and target text file(`tgt`)  
 default tokenize : `Mecab`+`SentencePiece`.
 
-### Step 2. Train the model
+### Step 2. Train
 ```
 !python train.py
 ```
